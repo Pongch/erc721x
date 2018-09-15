@@ -144,7 +144,7 @@ contract ERC721XToken is ERC721X, ERC721XTokenNFT {
         internal
         isOperatorOrOwner(_from)
     {
-        require(_amount <= balanceOf(_from, _tokenId), "Quantity greater than from balance");
+        require(_amount <= balanceOfCoin(_from, _tokenId), "Quantity greater than from balance");
         require(_to != address(0), "Invalid to address");
 
         _updateTokenBalance(_from, _tokenId, _amount, ObjectLib.Operations.SUB);
