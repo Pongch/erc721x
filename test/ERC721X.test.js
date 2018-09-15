@@ -64,7 +64,7 @@ contract('Card', accounts => {
         const amount = 5;
         await card.mint(uid, accounts[0], amount)
 
-        const balanceOf1 = await card.balanceOf.call(accounts[0], uid)
+        const balanceOf1 = await card.balanceOfCoin.call(accounts[0], uid)
         balanceOf1.should.be.eq.BN(new BN(5))
 
         const balanceOf2 = await card.balanceOf.call(accounts[0])
@@ -75,7 +75,7 @@ contract('Card', accounts => {
         const uid = 0
         await card.mint(uid, accounts[0])
 
-        const balanceOf1 = await card.balanceOf.call(accounts[0], uid)
+        const balanceOf1 = await card.balanceOfCoin.call(accounts[0], uid)
         balanceOf1.should.be.eq.BN(new BN(1))
 
         const balanceOf2 = await card.balanceOf.call(accounts[0])
@@ -138,7 +138,7 @@ contract('Card', accounts => {
         const uid = 0
         await card.mint(uid, alice)
 
-        const balanceOf1 = await card.balanceOf.call(alice, uid)
+        const balanceOf1 = await card.balanceOfCoin.call(alice, uid)
         balanceOf1.should.be.eq.BN(new BN(1))
 
         const balanceOf2 = await card.balanceOf.call(alice)
@@ -276,8 +276,8 @@ contract('Card', accounts => {
         let balanceTo;
 
         for (let i = 0; i < cards.length; i++){
-            balanceFrom = await card.balanceOf(alice, cards[i]);
-            balanceTo   = await card.balanceOf(bob, cards[i]);
+            balanceFrom = await card.balanceOfCoin(alice, cards[i]);
+            balanceTo   = await card.balanceOfCoin(bob, cards[i]);
 
             balanceFrom.should.be.eq.BN(0);
             balanceTo.should.be.eq.BN(copies[i]);
