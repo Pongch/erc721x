@@ -11,6 +11,10 @@ ERC721x is an extension of ERC721 that adds support for multi-fungible tokens an
 
 - [ERC721x Backwards Compatibility Layer](contracts/Core/ERC721X/ERC721XTokenNFT.sol)
 
+- [ERC721x Example with Loom Cards](contracts/Examples/Card.sol)
+
+- [ERC721x Example with optional tokenURI metadata](contracts/Examples/NftMeta.sol)
+
 - [Open source under BSD-3](LICENSE)
 ---
 

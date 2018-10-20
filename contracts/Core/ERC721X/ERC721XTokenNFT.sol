@@ -183,20 +183,6 @@ contract ERC721XTokenNFT is ERC721, SupportsInterfaceWithLookup {
         emit Transfer(_from, _to, _tokenId);
     }
 
-    function tokenURI(uint256 _tokenId) public view returns (string tokenUri) {
-        require(exists(_tokenId), "Token doesn't exist");
-        tokenUri = "https://rinkeby.loom.games/erc721/zmb/000000.json";
-
-        bytes memory _uriBytes = bytes(tokenUri);
-        _uriBytes[38] = byte(48+(_tokenId / 100000) % 10);
-        _uriBytes[39] = byte(48+(_tokenId / 10000) % 10);
-        _uriBytes[40] = byte(48+(_tokenId / 1000) % 10);
-        _uriBytes[41] = byte(48+(_tokenId / 100) % 10);
-        _uriBytes[42] = byte(48+(_tokenId / 10) % 10);
-        _uriBytes[43] = byte(48+(_tokenId / 1) % 10);
-
-        return tokenUri;
-    }
 
     /**
      * @dev Internal function to invoke `onERC721Received` on a target address
